@@ -41,10 +41,11 @@ The training pipeline consists of three stages:
 ![Screenshot 2025-07-09 141932](https://github.com/user-attachments/assets/0a192530-f810-4758-aa82-ca66bde978f9)
 
 
+![Screenshot 2025-07-09 141948](https://github.com/user-attachments/assets/bbeda210-a28b-4385-a02f-2cb102ae5d7f)
+
+
 ![Screenshot 2025-07-09 141955](https://github.com/user-attachments/assets/36cc15b6-558a-4585-89c7-6f0febdeaf72)
 
-
-![Screenshot 2025-07-09 141948](https://github.com/user-attachments/assets/bbeda210-a28b-4385-a02f-2cb102ae5d7f)
 
 
 4. **Inference Phase** – When `TrainMode` is `false`, the Expert Advisor loads the saved weights, reconstructs the network, and begins making real-time predictions. Trade logic can then act on these forecasts.
