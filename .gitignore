@@ -1,0 +1,6 @@
+# Ignore compiled files and weight artifacts
+*.ex5
+*.ex4
+*.obj
+*.bin
+.DS_Store
