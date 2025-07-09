@@ -27,9 +27,8 @@ The training pipeline consists of three stages:
 
 1. **Training Phase** – With `TrainMode` set to `true`, historical closing prices and the RSI indicator are used as features. Training continues until the network reaches a minimum MAE using the Adam optimizer.
 ![Screenshot 2025-07-09 141805](https://github.com/user-attachments/assets/80a304b9-5776-4d24-bde7-1837b1d76b8c)
-![Screenshot 2025-07-09 141833](https://github.com/user-attachments/assets/9adb5dea-e270-4bd9-a541-c28b5a474423)
 ![Screenshot 2025-07-09 141815](https://github.com/user-attachments/assets/2b5c8b40-2c4a-4a21-8bd3-b6e34ffc6d45)
-
+![Screenshot 2025-07-09 141833](https://github.com/user-attachments/assets/9adb5dea-e270-4bd9-a541-c28b5a474423)
 2. **Persistence Phase** – Once the model performs well, weights and biases are saved to a binary file in the shared `Files` folder. This file can be reused across Strategy Tester and live sessions.
 ![Screenshot 2025-07-09 141932](https://github.com/user-attachments/assets/0a192530-f810-4758-aa82-ca66bde978f9)
 ![Screenshot 2025-07-09 141920](https://github.com/user-attachments/assets/b0499cfd-1ddc-4faf-b200-5ba709587494)
