@@ -23,34 +23,35 @@ Adding new architectures follows the same interface so the workflow can be exten
 
 ## Workflow Overview
 
-The training pipeline consists of three stages:
+The training pipeline consists of four stages:
 
-1. **Training Phase** – With `TrainMode` set to `true`, historical closing prices and the RSI indicator are used as features. Training continues until the network reaches a minimum MAE using the Adam optimizer.
-![Screenshot 2025-07-09 141805](https://github.com/user-attachments/assets/80a304b9-5776-4d24-bde7-1837b1d76b8c)
-![Screenshot 2025-07-09 141815](https://github.com/user-attachments/assets/2b5c8b40-2c4a-4a21-8bd3-b6e34ffc6d45)
-![Screenshot 2025-07-09 141833](https://github.com/user-attachments/assets/9adb5dea-e270-4bd9-a541-c28b5a474423)
-2. **Persistence Phase** – Once the model performs well, weights and biases are saved to a binary file in the shared `Files` folder. This file can be reused across Strategy Tester and live sessions.
+1. **Training Phase** – Configure the network on the Strategy Tester **Inputs** tab with `TrainMode` set to `true`. Here you choose the architecture, set the training start date and other parameters. Training runs until the MAE target is reached using the Adam optimizer.
+   - ![Strategy Tester input panel](https://github.com/user-attachments/assets/80a304b9-5776-4d24-bde7-1837b1d76b8c)
+     *Inputs tab for selecting the model, enabling training and defining initial settings.*
+   - ![Set training start date](https://github.com/user-attachments/assets/2b5c8b40-2c4a-4a21-8bd3-b6e34ffc6d45)
+     *Example of configuring the historical range for learning.*
+   - ![Begin training](https://github.com/user-attachments/assets/9adb5dea-e270-4bd9-a541-c28b5a474423)
+     *Starting the Strategy Tester to launch the optimization process.*
 
+2. **Persistence Phase** – After training completes, the weights are saved to a binary `.bin` file under the platform's common `Files` directory.
+   - ![Open files panel](https://github.com/user-attachments/assets/9e53c48d-95bd-430a-a5b9-185b11738448)
+     *Click the **Files** button in MetaEditor to browse generated files.*
+   - ![Navigate to common folder](https://github.com/user-attachments/assets/b0499cfd-1ddc-4faf-b200-5ba709587494)
+     *Use the **Common Folder** option to access shared data.*
+   - ![My_AI_Models folder](https://github.com/user-attachments/assets/0a192530-f810-4758-aa82-ca66bde978f9)
+     *Open the `My_AI_Models` directory created by the EA.*
+   - ![Saved model binaries](https://github.com/user-attachments/assets/bbeda210-a28b-4385-a02f-2cb102ae5d7f)
+     *Each `.bin` file contains the serialized weights for a trained network.*
 
-![Screenshot 2025-07-09 141853](https://github.com/user-attachments/assets/9e53c48d-95bd-430a-a5b9-185b11738448)
+3. **Model File and Training Log** – The binary file itself appears unreadable if opened directly, which is normal because weights are stored in a compact format. This binary representation loads quickly inside MT5, making it efficient for the workflow.
+   - ![Binary weight preview](https://github.com/user-attachments/assets/36cc15b6-558a-4585-89c7-6f0febdeaf72)
+     *Example `.bin` file contents shown for demonstration purposes.*
+   - ![Training log showing MAE improvement](https://github.com/user-attachments/assets/17e6a260-b695-4dde-9c8c-08ff70959df7)
+     *Strategy Tester log illustrates how MAE decreases over epochs.*
 
-
-![Screenshot 2025-07-09 141920](https://github.com/user-attachments/assets/b0499cfd-1ddc-4faf-b200-5ba709587494)
-
-
-![Screenshot 2025-07-09 141932](https://github.com/user-attachments/assets/0a192530-f810-4758-aa82-ca66bde978f9)
-
-
-![Screenshot 2025-07-09 141948](https://github.com/user-attachments/assets/bbeda210-a28b-4385-a02f-2cb102ae5d7f)
-
-
-![Screenshot 2025-07-09 141955](https://github.com/user-attachments/assets/36cc15b6-558a-4585-89c7-6f0febdeaf72)
-
-
-
-4. **Inference Phase** – When `TrainMode` is `false`, the Expert Advisor loads the saved weights, reconstructs the network, and begins making real-time predictions. Trade logic can then act on these forecasts.
-![Screenshot 2025-07-09 142009](https://github.com/user-attachments/assets/17e6a260-b695-4dde-9c8c-08ff70959df7)
-![Screenshot 2025-07-09 143142](https://github.com/user-attachments/assets/0063f456-dde4-45a3-b504-690732754508)
+4. **Inference Phase** – With `TrainMode` set to `false`, the Expert Advisor loads the saved weights and begins producing live predictions.
+   - ![Network predictions during inference](https://github.com/user-attachments/assets/0063f456-dde4-45a3-b504-690732754508)
+     *The EA uses the stored model to forecast price movement on new data.*
 
    
 
