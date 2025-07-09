@@ -30,13 +30,13 @@ The training pipeline consists of three stages:
 ![Screenshot 2025-07-09 141815](https://github.com/user-attachments/assets/2b5c8b40-2c4a-4a21-8bd3-b6e34ffc6d45)
 ![Screenshot 2025-07-09 141833](https://github.com/user-attachments/assets/9adb5dea-e270-4bd9-a541-c28b5a474423)
 2. **Persistence Phase** – Once the model performs well, weights and biases are saved to a binary file in the shared `Files` folder. This file can be reused across Strategy Tester and live sessions.
-![Screenshot 2025-07-09 141932](https://github.com/user-attachments/assets/0a192530-f810-4758-aa82-ca66bde978f9)
+![Screenshot 2025-07-09 141853](https://github.com/user-attachments/assets/9e53c48d-95bd-430a-a5b9-185b11738448)
 
 
 ![Screenshot 2025-07-09 141920](https://github.com/user-attachments/assets/b0499cfd-1ddc-4faf-b200-5ba709587494)
 
 
-![Screenshot 2025-07-09 141853](https://github.com/user-attachments/assets/9e53c48d-95bd-430a-a5b9-185b11738448)
+![Screenshot 2025-07-09 141932](https://github.com/user-attachments/assets/0a192530-f810-4758-aa82-ca66bde978f9)
 
 
 ![Screenshot 2025-07-09 141955](https://github.com/user-attachments/assets/36cc15b6-558a-4585-89c7-6f0febdeaf72)
